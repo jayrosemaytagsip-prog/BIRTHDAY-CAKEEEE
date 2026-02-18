@@ -1,0 +1,172 @@
+# BIRTHDAY-CAKEEEE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Realistic Birthday Cake</title>
+
+<style>
+body{
+    background: radial-gradient(circle at center, #111, #000);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+    font-family:Arial;
+    overflow:hidden;
+}
+
+/* Plate */
+.plate{
+    position:absolute;
+    bottom:80px;
+    width:320px;
+    height:40px;
+    background:linear-gradient(#eee,#bbb);
+    border-radius:50%;
+    box-shadow:0 0 20px rgba(255,255,255,0.3);
+}
+
+/* Cake base */
+.cake{
+    position:relative;
+}
+
+/* Bottom layer */
+.layer1{
+    width:280px;
+    height:90px;
+    background:linear-gradient(#5a2c0c,#3b1d08);
+    border-radius:15px;
+    position:absolute;
+    bottom:120px;
+    box-shadow:
+        inset 0 8px rgba(255,255,255,0.1),
+        inset 0 -8px rgba(0,0,0,0.4);
+}
+
+/* Middle frosting */
+.layer2{
+    width:240px;
+    height:80px;
+    background:linear-gradient(#ff9ecb,#ff6fa8);
+    border-radius:15px;
+    position:absolute;
+    bottom:190px;
+    left:20px;
+}
+
+/* Top frosting */
+.layer3{
+    width:200px;
+    height:70px;
+    background:linear-gradient(#fff,#ffd9ec);
+    border-radius:15px;
+    position:absolute;
+    bottom:250px;
+    left:40px;
+}
+
+/* Candle */
+.candle{
+    width:12px;
+    height:50px;
+    background:linear-gradient(#fff,#ddd);
+    position:absolute;
+    bottom:320px;
+    left:134px;
+    border-radius:3px;
+}
+
+/* Flame */
+.flame{
+    width:14px;
+    height:20px;
+    background:radial-gradient(circle,#ffff66,#ff6600,#ff0000);
+    position:absolute;
+    bottom:370px;
+    left:133px;
+    border-radius:50%;
+    animation:flicker 0.15s infinite alternate;
+}
+
+/* Flicker animation */
+@keyframes flicker{
+    from{
+        transform:scale(1);
+        opacity:1;
+    }
+    to{
+        transform:scale(1.2);
+        opacity:0.7;
+    }
+}
+
+/* Message */
+.message{
+    position:absolute;
+    top:50px;
+    color:#fff;
+    font-size:40px;
+    letter-spacing:5px;
+    text-shadow:
+        0 0 10px #ff0080,
+        0 0 20px #ff0080,
+        0 0 40px #ff0080;
+    animation:glow 1s infinite alternate;
+}
+
+@keyframes glow{
+    from{opacity:0.8;}
+    to{opacity:1;}
+}
+
+/* Floating balloons */
+.balloon{
+    position:absolute;
+    width:30px;
+    height:40px;
+    background:red;
+    border-radius:50%;
+    animation:float 6s infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-100vh);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="message">HAPPY BIRTHDAY</div>
+
+<div class="cake">
+    <div class="plate"></div>
+    <div class="layer1"></div>
+    <div class="layer2"></div>
+    <div class="layer3"></div>
+    <div class="candle"></div>
+    <div class="flame"></div>
+</div>
+
+<script>
+/* Create balloons */
+for(let i=0;i<10;i++){
+    let b=document.createElement("div");
+    b.className="balloon";
+    b.style.left=Math.random()*100+"vw";
+    b.style.animationDuration=(4+Math.random()*5)+"s";
+    b.style.background=`hsl(${Math.random()*360},70%,60%)`;
+    document.body.appendChild(b);
+}
+</script>
+
+</body>
+</html>
